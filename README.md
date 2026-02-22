@@ -15,4 +15,4 @@ Outil d'automatisation d'archivage pour PME locales.
 ## Lancer le projet
 
 pip install -r requirements.txt
-python run.py
+python run.py# Rapido-Archi
