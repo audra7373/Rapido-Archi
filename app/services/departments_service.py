@@ -28,7 +28,7 @@ class DepartmentService:
     @staticmethod
     def delete(dept_id: int):
         with Session(engine) as session:
-            department = session.get(department, dept_id)
+            department = session.get(Department, dept_id)
             if not department:
                 return False
             session.delete(department)

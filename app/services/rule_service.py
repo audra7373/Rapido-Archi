@@ -18,7 +18,7 @@ class RuleService:
             rule = Rule(
                 extension=extension,
                 keyword=keyword,
-                department_id=department
+                department_id=department.id
             )
             
             session.add(rule)
