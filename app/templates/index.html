@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapido-Archi | Smart Archiving</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="glass-bg"></div>
+
+    <div class="container">
+        <header>
+            <h1>Rapido-Archi</h1>
+            <p>Intelligence documentaire automatisée</p>
+        </header>
+
+        <section class="notification-area" id="notificationArea"></section>
+
+        <main class="dashboard">
+            <!-- Upload Section -->
+            <section class="card upload-card">
+                <h2>Nouvelle Archive</h2>
+                <div class="drop-zone" id="dropZone">
+                    <span class="drop-icon">📄</span>
+                    <p>Glissez-déposez votre fichier ici ou <span class="highlight">cliquez pour parcourir</span>.</p>
+                    <input type="file" id="fileInput" hidden>
+                </div>
+                <button type="button" class="btn primary-btn" id="uploadBtn">Archiver automatiquement</button>
+            </section>
+
+            <!-- Admin Section -->
+            <div class="admin-panel">
+                <!-- Create Department -->
+                <section class="card small-card">
+                    <h2>Créer un Département</h2>
+                    <form id="deptForm">
+                        <div class="input-group">
+                            <label for="deptName">Nom</label>
+                            <input type="text" id="deptName" placeholder="ex: RH" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="deptPath">Chemin de destination</label>
+                            <input type="text" id="deptPath" placeholder="ex: ./archives/RH" required>
+                        </div>
+                        <button type="submit" class="btn secondary-btn">Enregistrer</button>
+                    </form>
+                </section>
+
+                <!-- Create Rule -->
+                <section class="card small-card">
+                    <h2>Ajouter une Règle</h2>
+                    <form id="ruleForm">
+                        <div class="input-group">
+                            <label for="ruleExt">Extension (Optionnel)</label>
+                            <input type="text" id="ruleExt" placeholder="ex: .pdf">
+                        </div>
+                        <div class="input-group">
+                            <label for="ruleKeyword">Mot-clé (Optionnel)</label>
+                            <input type="text" id="ruleKeyword" placeholder="ex: contrat">
+                        </div>
+                        <div class="input-group">
+                            <label for="ruleDeptId">ID du Département</label>
+                            <input type="number" id="ruleDeptId" placeholder="ex: 1" required>
+                        </div>
+                        <button type="submit" class="btn secondary-btn">Ajouter la Règle</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
